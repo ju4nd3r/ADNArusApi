@@ -21,6 +21,9 @@ public class UsuarioRepository implements UserRepository {
     @Override
     public User save(User user) {
         Usuario usuario = mapper.toUsuario(user);
+        usuario.setNumeroDocumento(user.getDocumentNumber());
+        System.out.println(user.getDocumentNumber());
+        System.out.println(user.getFirstName());
         return mapper.toUser(usuarioCrudRepository.save(usuario));
     }
 }
